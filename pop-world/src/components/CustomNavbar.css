@@ -1,0 +1,28 @@
+#logo,
+#logo:visited,
+#logo:active {
+  color: aliceblue;
+  text-decoration: none;
+}
+#logo:hover {
+  filter: brightness(85%);
+}
+ul#menu li {
+  display:inline;
+  margin-left: 0.5em;
+
+}
+ul#menu{
+  margin: 0;
+}
+@media screen and (max-width: 600px) {
+  ul#menu li {
+  display: block;
+  margin-top: 0.30em;
+  padding: 0 !important;
+  }
+  .rowr{
+    float: right;
+  }
+  
+}

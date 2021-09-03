@@ -1,0 +1,26 @@
+#developer-header {
+  background-color: rgb(43, 60, 109);
+  color: white;
+  font-size: 25px;
+  text-align: center;
+}
+
+#developer-card {
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+  transition: 300ms;
+}
+
+#developer-card:hover {
+  box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.75);
+  transition: 300ms;
+}
+
+footer {
+  position: sticky;
+  text-align: center;
+  padding: 1rem;
+  background: #111111;
+  color: #dddddd;
+  width: 100%;
+}
