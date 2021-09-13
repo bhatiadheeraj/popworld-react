@@ -158,6 +158,10 @@ class MSForm extends Component {
     const fitnessa1a2 = parseFloat(this.state.fitnessa1a2);
     const fitnessa2a2 = parseFloat(this.state.fitnessa2a2);
 
+    if(fitnessa1a1 == 1 || fitnessa1a2 == 1 || fitnessa2a2 == 1) {
+    
+    
+
     const g = parseInt(this.state.steps);
     const currentGeneration = parseInt(this.state.generation);
     let a1a1 = 0;
@@ -218,6 +222,9 @@ class MSForm extends Component {
     this.setState({ blue_value: blue_value });
     this.setState({ a1a2_value: a1a2.toFixed(0) });
     this.setState({ generation: finalGeneration });
+    }else {
+        window.alert("At least one fitness value should be set to 1 for the frequencies to be calculated");
+    }
   };
 
   handleButtonPress = e => {
