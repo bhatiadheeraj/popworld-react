@@ -166,45 +166,55 @@ class NR_MatingForm extends Component {
     let F = p_Inbreeding;
     let a1a2 = 0;
 
+    console.log("P_Inbreeding,F",F);
     let loopFlag = this.state.firstGen;
     let looper = g + currentGeneration;
-
+    
+    //if step == 1 and currentGen+step >= 2
     if (g == 1 && looper >= 2) {
+      console.log("HERE IN THE CASE when step is equal 1 and current geN+step >=2")
       for (let j = 0; j < g; j++) {
+        // 2*p*q* Mah.pow()
         a1a2 = 2 * tempA1 * tempA2 * Math.pow(1 - F, currentGeneration); // IMPORTANT: Use 'currentGeneration in the Math.pow() function.
         a1a1 = (1 - a1a2) / 2;
+        // tempA1 
         a2a2 = a1a1;
         
 
-        tempA1 = (2 * a1a1 + a1a2) / 2;
-        tempA2 = 1 - tempA1;
+        // tempA1 = (2 * a1a1 + a1a2) / 2;
+        // tempA2 = 1 - tempA1;
 
-        p = tempA1;
-        q = 1 - tempA1;
+        // p = tempA1;
+        // q = 1 - tempA1;
 
         this.updateGraph(this.state.generation + j + 1, q, p);
       }
+      // //if step != 1 and currentGen+step is not >= 2
     } else {
+      console.log("HERE IN THE CASE when step is either or equal 1 and currentGen+step is not >= 2")
       for (let i = 0; i < g; i++) {
+        //if first generation
         if (loopFlag) {
+          console.log("First Generation Loop")
           loopFlag = false;
 
           a1a1 = tempA1 * tempA1;
           a1a2 = 2 * tempA1 * tempA2;
           a2a2 = tempA2 * tempA2;
 
-          p = tempA1;
-          q = 1 - tempA1;
+          // p = tempA1;
+          // q = 1 - tempA1;
         } else {
+          console.log("More than one generation - Generation Loop")
           a1a2 = 2 * tempA1 * tempA2 * Math.pow(1 - F, currentGeneration + i); // IMPORTANT: Use 'currentGeneration in the Math.pow() function.
           a1a1 = (1 - a1a2) / 2;
           a2a2 = a1a1;
 
-          tempA1 = (2 * a1a1 + a1a2) / 2;
-          tempA2 = 1 - tempA1;
+          // tempA1 = (2 * a1a1 + a1a2) / 2;
+          // tempA2 = 1 - tempA1;
 
-          p = tempA1;
-          q = 1 - tempA1;
+          // p = tempA1;
+          // q = 1 - tempA1;
         }
 
         this.updateGraph(this.state.generation + i + 1, q, p);
